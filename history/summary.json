@@ -166,19 +166,19 @@
     "url": "https://gt7.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/gt7.zebbox.net.ico",
     "slug": "gt7",
-    "status": "down",
-    "uptime": "13.30%",
-    "uptimeDay": "13.30%",
-    "uptimeWeek": "13.30%",
-    "uptimeMonth": "13.30%",
-    "uptimeYear": "13.30%",
+    "status": "up",
+    "uptime": "14.18%",
+    "uptimeDay": "14.18%",
+    "uptimeWeek": "14.18%",
+    "uptimeMonth": "14.18%",
+    "uptimeYear": "14.18%",
     "time": 1011,
     "timeDay": 1011,
     "timeWeek": 1011,
     "timeMonth": 1011,
     "timeYear": 1011,
     "dailyMinutesDown": {
-      "2026-11-08": 2
+      "2026-11-08": 5
     }
   },
   {
@@ -186,19 +186,19 @@
     "url": "https://chat.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/chat.zebbox.net.ico",
     "slug": "chat",
-    "status": "down",
-    "uptime": "13.94%",
-    "uptimeDay": "13.94%",
-    "uptimeWeek": "13.94%",
-    "uptimeMonth": "13.94%",
-    "uptimeYear": "13.94%",
-    "time": 973,
-    "timeDay": 973,
-    "timeWeek": 973,
-    "timeMonth": 973,
-    "timeYear": 973,
+    "status": "up",
+    "uptime": "12.91%",
+    "uptimeDay": "12.91%",
+    "uptimeWeek": "12.91%",
+    "uptimeMonth": "12.91%",
+    "uptimeYear": "12.91%",
+    "time": 835,
+    "timeDay": 835,
+    "timeWeek": 835,
+    "timeMonth": 835,
+    "timeYear": 835,
     "dailyMinutesDown": {
-      "2026-11-08": 1
+      "2026-11-08": 5
     }
   },
   {
@@ -206,19 +206,19 @@
     "url": "https://grafana.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/grafana.zebbox.net.ico",
     "slug": "grafana",
-    "status": "down",
-    "uptime": "19.29%",
-    "uptimeDay": "19.29%",
-    "uptimeWeek": "19.29%",
-    "uptimeMonth": "19.29%",
-    "uptimeYear": "19.29%",
-    "time": 992,
-    "timeDay": 992,
-    "timeWeek": 992,
-    "timeMonth": 992,
-    "timeYear": 992,
+    "status": "up",
+    "uptime": "12.33%",
+    "uptimeDay": "12.33%",
+    "uptimeWeek": "12.33%",
+    "uptimeMonth": "12.33%",
+    "uptimeYear": "12.33%",
+    "time": 852,
+    "timeDay": 852,
+    "timeWeek": 852,
+    "timeMonth": 852,
+    "timeYear": 852,
     "dailyMinutesDown": {
-      "2026-11-08": 1
+      "2026-11-08": 5
     }
   },
   {
@@ -226,19 +226,19 @@
     "url": "https://n8n.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/n8n.zebbox.net.ico",
     "slug": "n8n",
-    "status": "down",
-    "uptime": "23.56%",
-    "uptimeDay": "23.56%",
-    "uptimeWeek": "23.56%",
-    "uptimeMonth": "23.56%",
-    "uptimeYear": "23.56%",
-    "time": 725,
-    "timeDay": 725,
-    "timeWeek": 725,
-    "timeMonth": 725,
-    "timeYear": 725,
+    "status": "up",
+    "uptime": "11.43%",
+    "uptimeDay": "11.43%",
+    "uptimeWeek": "11.43%",
+    "uptimeMonth": "11.43%",
+    "uptimeYear": "11.43%",
+    "time": 693,
+    "timeDay": 693,
+    "timeWeek": 693,
+    "timeMonth": 693,
+    "timeYear": 693,
     "dailyMinutesDown": {
-      "2026-11-08": 1
+      "2026-11-08": 5
     }
   },
   {
@@ -246,19 +246,19 @@
     "url": "https://adguard.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/adguard.zebbox.net.ico",
     "slug": "adguard",
-    "status": "down",
-    "uptime": "32.89%",
-    "uptimeDay": "32.89%",
-    "uptimeWeek": "32.89%",
-    "uptimeMonth": "32.89%",
-    "uptimeYear": "32.89%",
-    "time": 995,
-    "timeDay": 995,
-    "timeWeek": 995,
-    "timeMonth": 995,
-    "timeYear": 995,
+    "status": "up",
+    "uptime": "9.62%",
+    "uptimeDay": "9.62%",
+    "uptimeWeek": "9.62%",
+    "uptimeMonth": "9.62%",
+    "uptimeYear": "9.62%",
+    "time": 1045,
+    "timeDay": 1045,
+    "timeWeek": 1045,
+    "timeMonth": 1045,
+    "timeYear": 1045,
     "dailyMinutesDown": {
-      "2026-11-08": 0
+      "2026-11-08": 4
     }
   },
   {
@@ -266,19 +266,19 @@
     "url": "https://whoami.zebbox.net/",
     "icon": "https://icons.duckduckgo.com/ip3/whoami.zebbox.net.ico",
     "slug": "whoami",
-    "status": "down",
-    "uptime": "59.67%",
-    "uptimeDay": "59.67%",
-    "uptimeWeek": "59.67%",
-    "uptimeMonth": "59.67%",
-    "uptimeYear": "59.67%",
-    "time": 688,
-    "timeDay": 688,
-    "timeWeek": 688,
-    "timeMonth": 688,
-    "timeYear": 688,
+    "status": "up",
+    "uptime": "9.02%",
+    "uptimeDay": "9.02%",
+    "uptimeWeek": "9.02%",
+    "uptimeMonth": "9.02%",
+    "uptimeYear": "9.02%",
+    "time": 815,
+    "timeDay": 815,
+    "timeWeek": 815,
+    "timeMonth": 815,
+    "timeYear": 815,
     "dailyMinutesDown": {
-      "2026-11-08": 0
+      "2026-11-08": 4
     }
   }
 ]
