@@ -1,31 +1,143 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: zebby76
+repo: upptime
+user-agent: zebby76
+assignees:
+  - zebby76
 
-sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+# 5 minutes is GitHub Actions' floor for a scheduled workflow, so this is as fine-grained as
+# Upptime gets. The sub-minute ingress flaps of roadmap #32 will be missed by design.
+workflowSchedule:
+  uptime: "*/5 * * * *"
+
+# 2 s between endpoints instead of 15 simultaneous requests through the tunnel — it also keeps the
+# run clear of stickers' nginx limit_req.
+delay: 2000
+
+# Allowlist: a check can only read the secrets named here.
+secrets:
+  - NOTIFICATION_CUSTOM_WEBHOOK
+  - NOTIFICATION_CUSTOM_WEBHOOK_URL
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+  cname: status.zebbox.net
+  name: zebbox.net
+  theme: dark
+  introTitle: "État des services publics de zebbox.net"
+  introMessage: >
+    Sondé toutes les 5 minutes depuis GitHub Actions, c'est-à-dire **hors du cluster surveillé** :
+    une panne d'électricité, de réseau ou du cluster lui-même n'emporte pas cette page.
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+
+    Les services marqués *(ingress + SSO)* sont protégés par l'authentification unique. La sonde
+    s'arrête donc à la porte : elle prouve que l'entrée et le SSO répondent, **pas** que
+    l'application derrière fonctionne.
+
+sites:
+  # ── Ce qui répond directement, sans authentification intermédiaire.
+  - name: www.zebbox.net
+    slug: www
+    url: https://www.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: oria — portail
+    slug: oria-portail
+    url: https://oria.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: oria — monde 1
+    slug: oria-monde-1
+    url: https://oria-w1.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: oria — monde 2
+    slug: oria-monde-2
+    url: https://oria-w2.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: oria — monde 3
+    slug: oria-monde-3
+    url: https://oria-w3.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: stickers
+    slug: stickers
+    url: https://stickers.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: auth (Authelia)
+    slug: auth
+    url: https://auth.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: ntfy
+    slug: ntfy
+    url: https://ntfy.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  - name: vault (Vaultwarden)
+    slug: vault
+    url: https://vault.zebbox.net/
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 5000
+
+  # ── Interceptés par Authelia : un 302 EST l'état sain. Le code est déclaré exactement et non
+  # laissé au défaut d'Upptime (tout 2xx/3xx compte comme « up »), parce qu'un 200 ici signifierait
+  # qu'Authelia a cessé de protéger l'hôte — une régression de sécurité que le défaut masquerait.
+  - name: gt7 (ingress + SSO)
+    slug: gt7
+    url: https://gt7.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
+
+  - name: chat (ingress + SSO)
+    slug: chat
+    url: https://chat.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
+
+  - name: grafana (ingress + SSO)
+    slug: grafana
+    url: https://grafana.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
+
+  - name: n8n (ingress + SSO)
+    slug: n8n
+    url: https://n8n.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
+
+  - name: adguard (ingress + SSO)
+    slug: adguard
+    url: https://adguard.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
+
+  - name: whoami (ingress + SSO)
+    slug: whoami
+    url: https://whoami.zebbox.net/
+    expectedStatusCodes:
+      - 302
+    maxResponseTime: 5000
