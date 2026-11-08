@@ -82,6 +82,8 @@ sites:
     expectedStatusCodes:
       - 200
     maxResponseTime: 5000
+    # Même contrôle : un 200 d'Authelia qui ne sert pas sa page de connexion n'est pas un succès.
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: ntfy
     slug: ntfy
@@ -97,47 +99,59 @@ sites:
       - 200
     maxResponseTime: 5000
 
-  # ── Interceptés par Authelia : un 302 EST l'état sain. Le code est déclaré exactement et non
-  # laissé au défaut d'Upptime (tout 2xx/3xx compte comme « up »), parce qu'un 200 ici signifierait
-  # qu'Authelia a cessé de protéger l'hôte — une régression de sécurité que le défaut masquerait.
+  # ── Interceptés par Authelia. Upptime SUIT les redirections : il reçoit le 200 final de la page
+  # de connexion, pas le 302 initial que `curl` sans -L montre. Déclarer 302 ici marque les six
+  # hôtes en panne — vérifié à mes dépens le 2026-11-08, six fausses alertes envoyées.
+  #
+  # Le code seul ne prouve donc plus rien, puisqu'un hôte protégé et un hôte qui ne l'est PLUS
+  # finissent tous deux en 200. D'où le contrôle de corps : `<base href="https://auth.zebbox.net/"`
+  # est posé par Authelia et par personne d'autre — vérifié absent de www, oria, stickers, ntfy et
+  # vault, présent sur auth. Si le SSO cessait de protéger un hôte, la réponse serait le corps de
+  # l'application et la chaîne disparaîtrait, donc la sonde passerait au rouge.
   - name: gt7 (ingress + SSO)
     slug: gt7
     url: https://gt7.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: chat (ingress + SSO)
     slug: chat
     url: https://chat.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: grafana (ingress + SSO)
     slug: grafana
     url: https://grafana.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: n8n (ingress + SSO)
     slug: n8n
     url: https://n8n.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: adguard (ingress + SSO)
     slug: adguard
     url: https://adguard.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
 
   - name: whoami (ingress + SSO)
     slug: whoami
     url: https://whoami.zebbox.net/
     expectedStatusCodes:
-      - 302
+      - 200
     maxResponseTime: 5000
+    __dangerous__body_down_if_text_missing: '<base href="https://auth.zebbox.net/"'
