@@ -4,10 +4,18 @@ user-agent: zebby76
 assignees:
   - zebby76
 
-# 5 minutes is GitHub Actions' floor for a scheduled workflow, so this is as fine-grained as
-# Upptime gets. The sub-minute ingress flaps of roadmap #32 will be missed by design.
+# MEASURED, 2026-11-09: this asks for 288 runs a day and GitHub delivered 3 in twenty hours --
+# 1.2%. The `schedule` event is best-effort with no SLA, and GitHub honours spaced crons (every
+# daily workflow here ran exactly once, on time) while gutting close-together ones. 5 minutes is a
+# floor on what you may ASK, not a promise of delivery.
+#
+# The offsets are GitHub's own documented mitigation: "high load times include the start of every
+# hour", so these fire at :03 rather than :00. Expectation set deliberately low -- if the throttle
+# is priority-based rather than load-based this changes nothing, and the real cadence stays hours.
+# A genuine 5-minute cadence needs `repository_dispatch` from an outside clock, which means a token
+# of this account living at a third party; declined on purpose.
 workflowSchedule:
-  uptime: "*/5 * * * *"
+  uptime: "3,8,13,18,23,28,33,38,43,48,53,58 * * * *"
 
 # 2 s between endpoints instead of 15 simultaneous requests through the tunnel — it also keeps the
 # run clear of stickers' nginx limit_req.
@@ -24,8 +32,14 @@ status-website:
   theme: dark
   introTitle: "État des services publics de zebbox.net"
   introMessage: >
-    Sondé toutes les 5 minutes depuis GitHub Actions, c'est-à-dire **hors du cluster surveillé** :
-    une panne d'électricité, de réseau ou du cluster lui-même n'emporte pas cette page.
+    Sondé depuis GitHub Actions, c'est-à-dire **hors du cluster surveillé** : une panne
+    d'électricité, de réseau ou du cluster lui-même n'emporte pas cette page.
+
+
+    **La cadence réelle est de l'ordre de quelques heures**, pas des cinq minutes demandées :
+    l'événement planifié de GitHub Actions est « au mieux », sans engagement, et n'honore pas les
+    planifications rapprochées — mesuré le 2026-11-09, 3 exécutions livrées sur 240 demandées.
+    Cette page dit donc **si** un service répond, pas **quand** il est tombé à la minute.
 
 
     Les services marqués *(ingress + SSO)* sont protégés par l'authentification unique. La sonde
