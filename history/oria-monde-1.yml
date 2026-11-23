@@ -1,7 +1,7 @@
 url: https://oria-w1.zebbox.net/
-status: up
-code: 200
-responseTime: 634
-lastUpdated: 2026-11-22T02:57:17.454Z
+status: down
+code: 502
+responseTime: 254
+lastUpdated: 2026-11-23T03:18:28.319Z
 startTime: 2026-11-08T20:45:55.633Z
 generator: Upptime <https://github.com/upptime/upptime>
